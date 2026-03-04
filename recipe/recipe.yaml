@@ -1,5 +1,5 @@
 context:
-  version: "3.6.0"
+  version: "3.7.0"
   python_min: "3.10"
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/RapidAI/RapidOCR/archive/v${{ version }}.tar.gz
-  sha256: 8b061f87053e37e1943c0f372fffa2a6a52f064018ee69cceaeb32e8143ff782
+  sha256: 612d06dd36e638ade4da81d851dfaed8d0fd17a986218d1ecd79cf49e626e64b
   patches:
     - fix_setup.patch
 
