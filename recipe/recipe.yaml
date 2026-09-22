@@ -1,5 +1,5 @@
 context:
-  version: "3.8.0"
+  version: "3.9.2"
   python_min: "3.10"
 
 package:
@@ -8,20 +8,22 @@ package:
 
 source:
   url: https://github.com/RapidAI/RapidOCR/archive/v${{ version }}.tar.gz
-  sha256: 41385e2b94b37589c86f60da9082b04495ad18629c3852af2b7f62bed8b73a57
-  patches:
-    - fix_setup.patch
+  sha256: 0342bb616322661038eec54e6d14935a09e13fd0bcfecc7d8c3faf16e34fa805
 
 build:
   noarch: python
-  script: cd python && python -m pip install . -vv --no-deps --no-build-isolation
+  script:
+    env:
+      SETUPTOOLS_SCM_PRETEND_VERSION: ${{ version }}
+    content: cd python && python -m pip install . -vv --no-deps --no-build-isolation
   number: 0
 
 requirements:
   host:
     - python ${{ python_min }}.*
     - pip
-    - setuptools
+    - setuptools >=77
+    - setuptools-scm >=8
   run:
     - python >=${{ python_min }}
     - pyclipper >=1.2.0
@@ -32,7 +34,7 @@ requirements:
     - pyyaml
     - pillow
     - tqdm
-    - omegaconf
+    - omegaconf !=2.2.1
     - requests
     - colorlog
 
