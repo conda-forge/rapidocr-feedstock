@@ -1,5 +1,5 @@
 context:
-  version: "3.9.2"
+  version: "3.10.0"
 
 package:
   name: rapidocr
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/RapidAI/RapidOCR/archive/v${{ version }}.tar.gz
-  sha256: 0342bb616322661038eec54e6d14935a09e13fd0bcfecc7d8c3faf16e34fa805
+  sha256: b7b0e4e85c544be14e6223e3ebb77ad26287637024b0ff1c94ff791e07ee0ed9
 
 build:
   noarch: python
